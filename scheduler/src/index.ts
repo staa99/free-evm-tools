@@ -4,6 +4,7 @@ import { monitorTransactionSchedules } from './monitor'
 import { monitorPendingTransactions } from './executor'
 import { repositories } from './db'
 import { startServer } from './server'
+import { setupProviders } from './utils'
 
 dotenv.config()
 const logger = pino()
@@ -15,6 +16,7 @@ async function startMonitors() {
 }
 
 async function start() {
+  await setupProviders()
   startServer(logger)
   await startMonitors()
 }
