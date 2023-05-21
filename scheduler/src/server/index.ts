@@ -88,7 +88,10 @@ function setupServer(logger: pino.Logger) {
     }
 
     repositories.transactions
-      .storeTransactionSchedule({ transaction, time })
+      .storeTransactionSchedule({
+        transaction,
+        time: Math.max(Math.floor(Date.now() / 1000 + 2), time),
+      })
       .then(() => {
         res.status(201).json({
           status: 'pending',
