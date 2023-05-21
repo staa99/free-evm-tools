@@ -3,4 +3,4 @@
 ### A collection of free EVM tools
 
 - Scheduler
-- Contract Interface
+- Contract UI
